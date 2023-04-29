@@ -87,13 +87,13 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
-}
+    rgb(var(--background-start-rgb));*/
+} 
 
 a {
   color: inherit;
@@ -104,4 +104,38 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.scene{
+  position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    /* height: 1330px; */
+}
+.parallax-3{
+  background: url(https://zenkit.com/wp-content/themes/zenkit-com/img/bg/bg-suite-left.svg) no-repeat;
+  width: 41%;
+  -moz-background-size: 100%;
+  background-size: 100%;
+  left: -25px!important;
+  top: -15px!important;
+  position: absolute;
+  /* height: 1030px; */
+  height: 75%;
+}
+
+.parallax-4{
+  background: url(https://zenkit.com/wp-content/themes/zenkit-com/img/bg/bg-suite-right.svg) no-repeat;
+  width: 40%;
+  top: -10px!important;
+  left: auto!important;
+  right: -25px!important;
+  /* height: 1310px; */
+  height: 100%;
+  position: absolute;
+  -moz-background-size: 100%;
+  background-size: 100%;
 }
