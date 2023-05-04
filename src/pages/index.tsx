@@ -3,7 +3,8 @@ import Head from "next/head";
 import Image from "next/image";
 import { TFunction, withTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import styles from "@/styles/Home.module.css";
+import { Navbar } from "@/components/layout/navbar";
+import style from "@/styles/Home.module.css";
 
 type Props = {
   t: TFunction;
@@ -18,20 +19,22 @@ const Home: NextPage<Props> = ({ t }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navbar />
+
       <div id="scene">
         <div className="parallax-3" />
         <div className="parallax-4" />
       </div>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <h1>Soy Suficiente</h1>
+      <main className={style.main}>
+        <div className={style.description}>
+          <h1 className={style.title}>Soy Suficiente</h1>
         </div>
 
-        <div className={styles.center}>
+        <div className={style.center}>
           <h2>Proximamente creceremos juntos!</h2>
         </div>
 
-        <div className={styles.grid}></div>
+        <div className={style.grid}></div>
       </main>
     </>
   );

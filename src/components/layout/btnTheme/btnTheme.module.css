@@ -1,0 +1,15 @@
+.btn {
+  all: unset;
+  outline: revert;
+  box-sizing: border-box;
+  cursor: pointer;
+  z-index: 1;
+  padding: 5px;
+  transition: transform 0.18s;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+}
+.btn:active {
+  transform: translate(1px, 1px);
+}

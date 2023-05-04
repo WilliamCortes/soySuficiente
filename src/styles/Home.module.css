@@ -18,6 +18,9 @@
   font-family: var(--font-mono);
 }
 
+.title{
+  color: var(--text-color);
+}
 .description a {
   display: flex;
   justify-content: center;
@@ -29,8 +32,8 @@
   position: relative;
   margin: 0;
   padding: 1rem;
-  background-color: rgba(var(--callout-rgb), 0.5);
-  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  /* background-color: rgba(var(--callout-rgb), 0.5);
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3); */
   border-radius: var(--border-radius);
 }
 

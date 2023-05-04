@@ -2,12 +2,13 @@ import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Account from "@/components/Account";
+import "@/styles/supabase.css";
 
-const Home = () => {
+const HomePage = () => {
   const session = useSession();
-  console.log("🚀 ~ file: home.tsx:7 ~ Home ~ session:", session);
+  console.log("🚀 ~ file: home.tsx:7 ~ HomePage ~ session:", session);
   const supabase = useSupabaseClient();
-  console.log("🚀 ~ file: home.tsx:9 ~ Home ~ supabase:", supabase);
+  console.log("🚀 ~ file: home.tsx:9 ~ HomePage ~ supabase:", supabase);
 
   return (
     <div className="container" style={{ padding: "50px 0 100px 0" }}>
@@ -24,4 +25,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

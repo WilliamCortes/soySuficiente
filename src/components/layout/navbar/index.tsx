@@ -1,5 +1,6 @@
 import Image from "next/image";
 import style from "./navbar.module.css";
+import { BtnTheme } from "../btnTheme";
 type Props = {};
 
 export const Navbar = (props: Props) => {
@@ -28,6 +29,7 @@ export const Navbar = (props: Props) => {
             </li>
           </ol>
         </nav>
+        <BtnTheme />
       </div>
     </header>
   );
