@@ -1,26 +1,39 @@
-import "@/styles/globals.css";
+import { FC, Fragment, useState } from "react";
 import type { AppProps } from "next/app";
-import { useState } from "react";
+import Script from "next/script";
 import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { SessionContextProvider, Session } from "@supabase/auth-helpers-react";
 import { appWithTranslation } from "next-i18next";
-import { Footer } from "@/components/layout/footer";
+import "@/styles/globals.css";
 
-const IAmEnough = ({
-  Component,
-  pageProps,
-}: AppProps<{
+type Props = AppProps<{
   initialSession: Session;
-}>) => {
+}>;
+
+const IAmEnough: FC<Props> = ({ Component, pageProps }) => {
   const [supabase] = useState(() => createBrowserSupabaseClient());
   return (
-    <SessionContextProvider
-      supabaseClient={supabase}
-      initialSession={pageProps.initialSession}
-    >
-      <Component {...pageProps} />
-      <Footer />
-    </SessionContextProvider>
+    <Fragment>
+      <Script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=G-DPGJZ4X9CE`}
+      />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-DPGJZ4X9CE');
+        `}
+      </Script>
+      <SessionContextProvider
+        supabaseClient={supabase}
+        initialSession={pageProps.initialSession}
+      >
+        <Component {...pageProps} />
+      </SessionContextProvider>
+    </Fragment>
   );
 };
 
