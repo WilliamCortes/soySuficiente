@@ -1,3 +1,11 @@
 {
-    "title": "I am enough"
+  "title": "I am enough",
+  "home": {
+    "title": "Discover your path to self-sufficiency and wellness!",
+    "title-all": "You may be interested in",
+    "description": "At Soysuficiente, we provide you with the tools and resources to cultivate self-sufficiency, wellness and personal development. Join our community and find inspiration for a full and conscious life."
+  },
+  "post":{
+    "suggested": "You can also read"
+  }
 }

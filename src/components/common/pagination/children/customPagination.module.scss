@@ -1,0 +1,126 @@
+@import "@styles/variables.scss";
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 5px;
+}
+
+.pagination ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  background-color: $background-btn;
+  padding: 3px;
+  border-radius: 20px;
+  margin: 0 15px;
+}
+
+.pagination ul li {
+  display: flex;
+}
+
+.prevBtn,
+.nextBtn,
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // TODO: review this font-family
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: transparent;
+  height: $sizeBtn;
+  width: $sizeBtn;
+  margin: 0 2px;
+  border: none;
+  border-radius: 50%;
+  user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+
+  &:hover {
+    background: $hover-btn;
+  }
+}
+
+.prevBtn,
+.nextBtn {
+  color: $pagination-btn-active;
+  background-color: $background-btn;
+  margin: 3px 0;
+
+  i {
+    font-size: 20px;
+  }
+
+  &:hover {
+    background-color: rgba(19, 34, 58, 0.1);
+  }
+}
+
+.textBtn {
+  width: unset;
+  background-color: transparent;
+  padding: 0 15px;
+  border-radius: 20px;
+
+  span {
+    margin: 5px;
+  }
+}
+
+.active {
+  background-color: $pagination-btn-active;
+  color: $white;
+  &:hover {
+    background-color: $pagination-btn-active;
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.ellipsis {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: $sizeBtn;
+  width: $sizeBtn;
+  padding-bottom: 5px;
+
+  @media screen and (max-width: $screen-xs) {
+    width: 15px;
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  font-size: 24px;
+  -webkit-animation: spin 1.3s linear infinite;
+  -moz-animation: spin 1.3s linear infinite;
+  animation: spin 1.3s linear infinite;
+}

@@ -1,9 +1,11 @@
 import Image from "next/image";
 import style from "./navbar.module.css";
 import { BtnTheme } from "../btnTheme";
+import { FC } from "react";
+
 type Props = {};
 
-export const Navbar = (props: Props) => {
+export const Navbar: FC<Props> = () => {
   return (
     <header className={style["header"]}>
       <div className={style["nav_container"]}>
@@ -18,7 +20,7 @@ export const Navbar = (props: Props) => {
             />
           </figure>
         </div>
-        <nav className={style["nav_menu"]}>
+        {/* <nav className={style["nav_menu"]}>
           <ol>
             <li>
               <button className={style["nav_button"]}>Categorias</button>
@@ -28,7 +30,7 @@ export const Navbar = (props: Props) => {
               <button className={style["nav_button"]}>Cerrar Sesión</button>
             </li>
           </ol>
-        </nav>
+        </nav> */}
         <BtnTheme />
       </div>
     </header>

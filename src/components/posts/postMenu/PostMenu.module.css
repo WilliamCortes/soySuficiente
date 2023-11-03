@@ -1,0 +1,26 @@
+.container {
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+.container > h2{
+  margin: 2rem 0;
+}
+.container > ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+.container > ul > li {
+  list-style: none;
+}
+
+/* @media (max-width: var(--screen-md)) { */
+@media (max-width: 768px) {
+  .container > ul{
+    flex-direction: column;
+  }
+}

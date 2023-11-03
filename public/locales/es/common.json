@@ -1,3 +1,11 @@
 {
-    "title": "Soy suficiente"
+  "title": "Soy suficiente",
+  "home": {
+    "title": "¡Descubre tu camino hacia la autosuficiencia y bienestar!",
+    "title-all": "Te puede interesar",
+    "description": "En Soysuficiente, te brindamos las herramientas y recursos para cultivar la autosuficiencia, el bienestar y el desarrollo personal. Únete a nuestra comunidad y encuentra inspiración para una vida plena y consciente."
+  },
+  "post":{
+    "suggested": "También puedes leer"
+  }
 }

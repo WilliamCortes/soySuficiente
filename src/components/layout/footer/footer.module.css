@@ -2,6 +2,8 @@
   max-width: 960px;
   margin-inline: auto;
   padding-inline: 20px;
+  padding: 2rem 0;
+
 }
 
 .footer {
@@ -22,28 +24,21 @@
   display: flex;
 }
 
-.name {
-  font-size: 1.8rem;
-  font-weight: 600;
-  line-height: 1.77;
-  margin-bottom: 0;
-}
-
 .rights {
-    font-size: 1.6rem;
+    font-size: 1rem;
     font-weight: normal;
     line-height: 1.77;
   margin-top: 0;
 }
 
 .text {
-  font-size: 1.8rem;
+  font-size: 1.1rem;
   font-weight: 600;
   line-height: 1.77;
   margin-top: 0;
 }
 .text--sm{
-    font-size: 1.6rem;
+    font-size: 1rem;
     font-weight: normal;
     line-height: 1.77;
 }
@@ -55,5 +50,12 @@
 @media (max-width: 600px) {
   .footer {
     flex-direction: column;
+  }
+}
+
+/* @media (max-width: var(--screen-st)) { */
+@media (max-width: 1080px) {
+  .container{
+    max-width: var(--max-width-st);
   }
 }

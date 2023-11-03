@@ -1,15 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
 :root {
-  --max-width: 1100px;
+  --max-width: 1024px;
+  --max-width-st: 90%;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font: "Roboto", ui-monospace, Menlo, sans-serif, monospace;
+
+  --screen-xs: 480px;
+  --screen-sm: 576px;
+  --screen-md: 768px;
+  --screen-lg: 992px;
+  --screen-st: 1080px;
+  --screen-xl: 1200px;
+  --screen-hd: 1366px;
+  --screen-xxl: 1600px;
 
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
   --text-color: #232020;
+  --primary-bg: white;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -50,52 +61,64 @@
   --card-border-rgb: 131, 134, 135;
 
   --parallax-invert: 0;
+
+  --nav-height: 76px;
+  --drop-shadow: drop-shadow(0 4px 3px rgb(0 0 0/0.07))
+    drop-shadow(0 2px 2px rgb(0 0 0/0.06));
+  --black-shadow: rgba(27, 31, 35, 0.04);
+  --gray-shadow: rgba(255, 255, 255, 0.25);
+  --light-icon: black;
+  --scroll-color: #737373;
 }
 
+:root.dark {
+  --foreground-rgb: 18, 31, 61;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 
-  :root.dark {
-    --foreground-rgb: 18, 31, 61;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  --text-color: #fcfcfc;
+  --primary-bg: rgb(var(--foreground-rgb));
 
-    --text-color:#fcfcfc;
+  --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
+  --secondary-glow: linear-gradient(
+    to bottom right,
+    rgba(1, 65, 255, 0),
+    rgba(1, 65, 255, 0),
+    rgba(1, 65, 255, 0.3)
+  );
+  --nabVar: linear-gradient(
+    to bottom right,
+    rgba(1, 65, 255, 0),
+    rgba(1, 65, 255, 0),
+    rgba(1, 65, 255, 0.3)
+  );
+  --nabVar-link: #fbf6f6;
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-    --nabVar: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-    --nabVar-link: #fbf6f6;
+  --tile-start-rgb: 2, 13, 46;
+  --tile-end-rgb: 2, 5, 19;
+  --tile-border: conic-gradient(
+    #ffffff80,
+    #ffffff40,
+    #ffffff30,
+    #ffffff20,
+    #ffffff10,
+    #ffffff10,
+    #ffffff80
+  );
 
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
+  --callout-rgb: 20, 20, 20;
+  --callout-border-rgb: 108, 108, 108;
+  --card-rgb: 100, 100, 100;
+  --card-border-rgb: 200, 200, 200;
 
   --parallax-invert: 1;
-
-  }
-
+  --drop-shadow: drop-shadow(0 4px 3px rgba(242, 237, 237, 0.07))
+    drop-shadow(0 2px 2px rgb(0 0 0/0.06));
+  --black-shadow: rgba(27, 31, 35, 0.04);
+  --gray-shadow: rgba(221, 219, 219, 0.25);
+  --light-icon: white;
+  --scroll-color: #737373;
+}
 
 * {
   box-sizing: border-box;
@@ -106,13 +129,51 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
 }
 
 body {
   background: rgb(var(--foreground-rgb));
-} 
+  color: var(--text-color);
+  font-family: var(--font);
+  font-size: 1.2rem;
+  overflow-x: hidden;
+  scrollbar-color: var(--scroll-color);
+  scrollbar-width: thin;
+  /* position: relative; */
+}
 
+body::-webkit-scrollbar {
+  background: transparent;
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--scroll-color);
+  border: none;
+  border-color: transparent;
+  border-radius: 50px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+div,
+span,
+time,
+small,
+button {
+  font-family: var(--font);
+  /* letter-spacing: 0.1px; */
+}
+h1 {
+  font-size: 3.75rem;
+  text-align: center;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -124,41 +185,48 @@ a {
   }
 } */
 
-.scene{
-  position: absolute;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    overflow: hidden;
-    box-sizing: border-box;
-    /* height: 1330px; */
+#__next {
+  position: relative;
 }
 
-.parallax-3{
-  background: url(https://zenkit.com/wp-content/themes/zenkit-com/img/bg/bg-suite-left.svg) no-repeat;
- /* background-repeat: repeat-y; */
- filter: invert(var(--parallax-invert));
-  width: 41%;
+.scene {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: 100%;
+  z-index: -1;
+}
+
+.parallax-3 {
+  background: url("../../public/assets/images/bg-suite-left.svg");
+  background-repeat: repeat-y;
+  filter: invert(var(--parallax-invert));
+  width: 45%;
   -moz-background-size: 100%;
   background-size: 100%;
-  left: -25px!important;
-  top: -15px!important;
   position: absolute;
-  /* height: 1030px; */
-  height: 75%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 1030px;
+  height: 100%;
+  z-index: -1;
 }
 
-.parallax-4{
-  background: url(https://zenkit.com/wp-content/themes/zenkit-com/img/bg/bg-suite-right.svg) no-repeat;
+.parallax-4 {
+  background: url("../../public/assets/images/bg-suite-right.svg");
   filter: invert(var(--parallax-invert));
- 
-  width: 40%;
-  top: -10px!important;
-  left: auto!important;
-  right: -25px!important;
-  /* height: 1310px; */
+  background-repeat: repeat-y;
+  width: 45%;
+  bottom: 0;
+  right: 0;
+  height: 1310px;
   height: 100%;
   position: absolute;
   -moz-background-size: 100%;
   background-size: 100%;
+  z-index: -1;
 }

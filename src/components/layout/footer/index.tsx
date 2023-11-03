@@ -12,12 +12,16 @@ export const Footer: FC<Props> = () => {
       <div className={style.container}>
         <div className={style.footer}>
           <div className={style.side}>
-            <div>
-              <p className={style.name}>
-                {t<string>("nick")} {new Date().getFullYear()}{" "}
-              </p>
-              <p className={style.rights}>{t<string>("slogan")}</p>
-            </div>
+            <a
+              className={style.text}
+              href="https://williamcortes.co/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t<string>("nick")} {new Date().getFullYear()}{" "}
+            </a>
+
+            <p className={style.rights}>{t<string>("slogan")}</p>
           </div>
           <div className={style["side"]}>
             <p className={style["text--sm"]}>{t<string>("title")}</p>
@@ -33,7 +37,6 @@ export const Footer: FC<Props> = () => {
                     width="32"
                     height="32"
                     viewBox="0 0 32 32"
-                    fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
@@ -56,7 +59,6 @@ export const Footer: FC<Props> = () => {
                     width="32"
                     height="32"
                     viewBox="0 0 32 32"
-                    fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
@@ -72,15 +74,15 @@ export const Footer: FC<Props> = () => {
               <li>
                 <a
                   className={style.text}
-                  href={t<string>("facebook")}
+                  href={t<string>("github")}
                   target="_blank"
                   rel="noreferrer"
                 >
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
                     width="32"
                     height="32"
                     viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       fillRule="evenodd"
@@ -89,21 +91,6 @@ export const Footer: FC<Props> = () => {
                       fill="var(--light-icon)"
                     />
                   </svg>
-                  {/* <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M24,12.073c0,5.989-4.394,10.954-10.13,11.855v-8.363h2.789l0.531-3.46H13.87V9.86c0-0.947,0.464-1.869,1.95-1.869h1.509V5.045c0,0-1.37-0.234-2.679-0.234c-2.734,0-4.52,1.657-4.52,4.656v2.637H7.091v3.46h3.039v8.363C4.395,23.025,0,18.061,0,12.073c0-6.627,5.373-12,12-12S24,5.445,24,12.073z"
-                      transform="scale(1.3)"
-                      fill="var(--light-icon)"
-                    />
-                  </svg> */}
                 </a>
               </li>
             </ul>

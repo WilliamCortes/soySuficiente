@@ -1,0 +1,24 @@
+.container {
+  filter: drop-shadow(0 4px 3px #00000012) drop-shadow(0 2px 2px #0000000f);
+  object-fit: contain;
+  overflow: hidden;
+}
+
+.img {
+  background-color: #cec9f7;
+}
+
+.loading {
+  filter: grayscale(1);
+  transform: scale(1.1);
+  backdrop-filter: blur(2px);
+  transition: filter 0.3s, backdrop-filter 0.3s, transform 0.3s;
+}
+
+.default {
+  filter: grayscale(0);
+  transform: scale(1);
+  backdrop-filter: unset;
+  transition: filter 0.3s, backdrop-filter 0.3s, transform 0.3s;
+}
+

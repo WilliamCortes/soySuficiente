@@ -4,13 +4,22 @@ import Image from "next/image";
 import { TFunction, withTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Navbar } from "@/components/layout/navbar";
-import style from "@/styles/Home.module.css";
+import Layout from "@/components/layout";
+import { TPosts } from "@/types";
+import PostsRepository from "@/repositories/posts.repository";
+import HomeView from "@/components/home/HomeView";
 
 type Props = {
   t: TFunction;
+  posts: TPosts[];
 };
 
-const Home: NextPage<Props> = ({ t }) => {
+const Home: NextPage<Props> = ({ t, ...props }) => {
+  const layoutProps = {
+    title: t("common:title"),
+    description: t("common:description"),
+    logo: "~/logoS.png",
+  };
   return (
     <>
       <Head>
@@ -19,35 +28,29 @@ const Home: NextPage<Props> = ({ t }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
 
       <div id="scene">
         <div className="parallax-3" />
         <div className="parallax-4" />
       </div>
-      <main className={style.main}>
-        <div className={style.description}>
-          <h1 className={style.title}>Soy Suficiente</h1>
-        </div>
-
-        <div className={style.center}>
-          <h2>Proximamente creceremos juntos!</h2>
-        </div>
-
-        <div className={style.grid}></div>
-      </main>
+      <Layout {...layoutProps}>
+        <HomeView {...props} />
+      </Layout>
     </>
   );
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
+    const posts = await PostsRepository.getAll();
     const i18nProps = await serverSideTranslations(ctx?.locale || "es-CO", [
       "common",
       "footer",
     ]);
+
     return {
       props: {
+        posts,
         ...i18nProps,
       },
     };
