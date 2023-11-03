@@ -6,7 +6,12 @@ const nextConfig = {
   i18n,
   images: {
     //TODO: delete fake domains
-    domains: ["images.unsplash.com", "myimage.img"],
+    domains: [
+      "images.unsplash.com",
+      "myimage.img",
+      "cdn.pixabay.com",
+      "pixabay.com",
+    ],
   },
 };
 

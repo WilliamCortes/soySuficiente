@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { createPagination } from "@utils/jobOffers";
+// import { createPagination } from "@utils/jobOffers";
 import style from "./customPagination.module.scss";
 
 type TPaginationProps = {
@@ -25,14 +25,15 @@ export const CustomPagination: FC<TPaginationProps> = ({
   nextText,
   prevTitle,
   nextTitle,
-  numberOfButtons = 5
+  numberOfButtons = 5,
 }) => {
-  const { buttons, first, last } = createPagination({
-    total,
-    current,
-    pageSize,
-    numberOfButtons
-  });
+  // const { buttons, first, last } = createPagination({
+  //   total,
+  //   current,
+  //   pageSize,
+  //   numberOfButtons
+  // });
+  const { buttons, first, last } = { buttons: [1, 2, 3], first: 1, last: 3 };
 
   const handleClick = (page: number) => {
     if (page === current) return;
@@ -43,9 +44,9 @@ export const CustomPagination: FC<TPaginationProps> = ({
     <div className={style.pagination}>
       {first !== current && (
         <button
-          className={`${(first === current || loading) && style.disabled} ${prevText && style.textBtn} ${
-            style.prevBtn
-          }`}
+          className={`${(first === current || loading) && style.disabled} ${
+            prevText && style.textBtn
+          } ${style.prevBtn}`}
           title={prevTitle}
           disabled={first === current || loading}
           onClick={() => handleClick(current - 1)}
@@ -58,12 +59,18 @@ export const CustomPagination: FC<TPaginationProps> = ({
         {!buttons.includes(first) && (
           <li>
             <button
-              className={`${current === first && style.active} ${loading && style.disabled} ${style.btn}`}
+              className={`${current === first && style.active} ${
+                loading && style.disabled
+              } ${style.btn}`}
               disabled={loading}
               title={`${first}`}
               onClick={() => handleClick(first)}
             >
-              {loading && current === first ? <i className={`las la-spinner ${style.spinner}`} /> : first}
+              {loading && current === first ? (
+                <i className={`las la-spinner ${style.spinner}`} />
+              ) : (
+                first
+              )}
             </button>
             <i className={`las la-ellipsis-h ${style.ellipsis}`} />
           </li>
@@ -71,12 +78,18 @@ export const CustomPagination: FC<TPaginationProps> = ({
         {buttons.map((page, index) => (
           <li key={`${page}-${index}`}>
             <button
-              className={`${current === page && style.active} ${loading && style.disabled} ${style.btn}`}
+              className={`${current === page && style.active} ${
+                loading && style.disabled
+              } ${style.btn}`}
               disabled={loading}
               title={`${page}`}
               onClick={() => handleClick(page)}
             >
-              {loading && current === page ? <i className={`las la-spinner ${style.spinner}`} /> : page}
+              {loading && current === page ? (
+                <i className={`las la-spinner ${style.spinner}`} />
+              ) : (
+                page
+              )}
             </button>
           </li>
         ))}
@@ -84,19 +97,27 @@ export const CustomPagination: FC<TPaginationProps> = ({
           <li>
             <i className={`las la-ellipsis-h ${style.ellipsis}`} />
             <button
-              className={`${current === last && style.active} ${loading && style.disabled} ${style.btn}`}
+              className={`${current === last && style.active} ${
+                loading && style.disabled
+              } ${style.btn}`}
               disabled={loading}
               title={`${last}`}
               onClick={() => handleClick(last)}
             >
-              {loading && current === last ? <i className={`las la-spinner ${style.spinner}`} /> : last}
+              {loading && current === last ? (
+                <i className={`las la-spinner ${style.spinner}`} />
+              ) : (
+                last
+              )}
             </button>
           </li>
         )}
       </ul>
       {last !== current && (
         <button
-          className={`${(last === current || loading) && style.disabled} ${nextText && style.textBtn} ${style.nextBtn}`}
+          className={`${(last === current || loading) && style.disabled} ${
+            nextText && style.textBtn
+          } ${style.nextBtn}`}
           disabled={last === current || loading}
           title={nextTitle}
           onClick={() => handleClick(current + 1)}
