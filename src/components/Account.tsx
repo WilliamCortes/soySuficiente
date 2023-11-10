@@ -18,6 +18,7 @@ export default function Account({ session }: { session: Session }) {
 
   useEffect(() => {
     getProfile();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session]);
 
   async function getProfile() {
