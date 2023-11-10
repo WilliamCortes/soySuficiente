@@ -25,25 +25,46 @@ const PostSlug: NextPage<Props> = ({ post, suggested }) => {
   );
 };
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
-  const posts = await PostsRepository.getAll();
+  try {
+    const posts = await PostsRepository.getAll();
 
-  return {
-    paths: posts.map((post: TPosts) => ({ params: { postSlug: post.slug } })),
-    fallback: "blocking",
-  };
+    return {
+      paths: posts.map((post: TPosts) => ({ params: { postSlug: post.slug } })),
+      fallback: "blocking",
+    };
+  } catch (error) {
+    console.error(
+      "🚀 ~ file: [postSlug].tsx:38 ~ constgetStaticPaths:GetStaticPaths= ~ error:",
+      error
+    );
+    return {
+      paths: [],
+      fallback: "blocking",
+    };
+  }
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const post = await PostsRepository.getBySlug(ctx.params?.postSlug as string);
-  const suggested = await PostsRepository.getAll();
-  const i18nProps = await serverSideTranslations(ctx?.locale || "es-CO", [
-    "common",
-    "footer",
-  ]);
+  try {
+    const post = await PostsRepository.getBySlug(
+      ctx.params?.postSlug as string
+    );
+    const suggested = await PostsRepository.getAll();
+    const i18nProps = await serverSideTranslations(ctx?.locale || "es-CO", [
+      "common",
+      "footer",
+    ]);
 
-  return {
-    props: { post, suggested, ...i18nProps },
-  };
+    return {
+      props: { post, suggested, ...i18nProps },
+    };
+  } catch (error) {
+    console.error(
+      "🚀 ~ file: [postSlug].tsx:51 ~ constgetStaticProps:GetStaticProps= ~ error:",
+      error
+    );
+    return { notFound: true };
+  }
 };
 
 export default withTranslation()(PostSlug);
