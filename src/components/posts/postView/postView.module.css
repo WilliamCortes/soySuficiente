@@ -59,9 +59,21 @@
   border-radius: 8px;
 }
 
+.inner_html > div,
+.inner_html > div > ol,
+.inner_html > div > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.inner_html > div > ol,
+.inner_html > div > ul {
+  gap: 20px;
+}
 /* @media (max-width: var(--screen-st)) { */
 @media (max-width: 1080px) {
-  .content{
+  .content {
     max-width: var(--max-width-st);
   }
 }

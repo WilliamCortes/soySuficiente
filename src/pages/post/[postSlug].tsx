@@ -33,10 +33,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
       fallback: "blocking",
     };
   } catch (error) {
-    console.error(
-      "🚀 ~ file: [postSlug].tsx:38 ~ constgetStaticPaths:GetStaticPaths= ~ error:",
-      error
-    );
+    console.error("🚀 ~ [postSlug].tsx:GetStaticPaths= ~ error:", error);
     return {
       paths: [],
       fallback: "blocking",
@@ -59,10 +56,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       props: { post, suggested, ...i18nProps },
     };
   } catch (error) {
-    console.error(
-      "🚀 ~ file: [postSlug].tsx:51 ~ constgetStaticProps:GetStaticProps= ~ error:",
-      error
-    );
+    console.error("🚀 ~[postSlug].tsx:getStaticProps ~ error:", error);
     return { notFound: true };
   }
 };

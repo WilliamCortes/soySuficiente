@@ -3,7 +3,7 @@ import Api from "./core";
 
 class Posts extends Api {
   async getAll() {
-    return this.get<TPosts[]>("/post");
+    return this.get<TPosts[]>("/posts");
   }
 
   async getBySlug(slug: string) {

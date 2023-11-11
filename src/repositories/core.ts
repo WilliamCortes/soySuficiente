@@ -1,8 +1,8 @@
-const host = process.env.HOST || "http://localhost:3000";
+const host = process.env.HOST || "http://localhost:3001/enough";
 class Api {
   private readonly baseUrl?: string;
 
-  constructor(baseUrl = `${host}/api`) {
+  constructor(baseUrl = `${host}`) {
     this.baseUrl = baseUrl;
   }
 

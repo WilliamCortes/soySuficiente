@@ -55,6 +55,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       },
     };
   } catch (error) {
+    console.log("🚀 ~ file: index~ GetStaticProps= ~ error:", error);
     return { notFound: true };
   }
 };

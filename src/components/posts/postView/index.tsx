@@ -55,7 +55,10 @@ export const PostView: FC<Props> = ({
             alt={title}
           />
         </div>
-        <p dangerouslySetInnerHTML={{ __html: content }} />
+        <section
+          className={style.inner_html}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
         <article className={style.suggested}>
           <PostMenu posts={suggested} title={t("common:post.suggested")} />
         </article>
