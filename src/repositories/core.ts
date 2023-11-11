@@ -28,7 +28,7 @@ class Api {
     const jsonResponse = await response.json();
 
     if (!response.ok) {
-      throw new Error(jsonResponse.message || response.statusText);
+      throw new Error(jsonResponse || response.statusText);
     }
 
     return jsonResponse;
